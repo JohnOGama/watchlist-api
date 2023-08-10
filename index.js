@@ -8,7 +8,13 @@ const Movie = require("./model/Movie");
 const PORT = process.env.PORT || 8000;
 
 connect();
-app.use(cors());
+app.use(
+  cors({
+    origin: [""],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
